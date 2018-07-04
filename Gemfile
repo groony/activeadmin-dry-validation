@@ -11,3 +11,7 @@ group :development do
   gem 'listen'
   gem 'sqlite3'
 end
+
+group :test do
+  gem 'rails-controller-testing'
+end
