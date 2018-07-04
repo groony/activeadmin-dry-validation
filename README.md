@@ -1,5 +1,7 @@
 # Activeadmin::Dry::Validation
 
+![travis](https://travis-ci.com/groony/activeadmin-dry-validation.svg?branch=master)
+
 ## Installation
 
 Add this line to your application's Gemfile:
