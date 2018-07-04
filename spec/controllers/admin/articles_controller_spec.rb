@@ -81,4 +81,36 @@ RSpec.describe Admin::ArticlesController, type: :controller do
       end
     end
   end
+
+  describe "PUT update" do
+    context 'with valid params' do
+      before do
+        put :update, params: { id: article.id, article: valid_attributes }
+      end
+      it 'assigns the article' do
+        expect(assigns(:article)).to eq(article)
+      end
+      it 'returns http redirect' do
+        expect(response).to have_http_status(:redirect)
+        expect(response).to redirect_to(admin_article_path(article))
+      end
+      it "should update the article" do
+        article.reload
+
+        expect(article.title).to eq(valid_attributes[:title])
+        expect(article.announcement).to  eq(valid_attributes[:announcement])
+      end
+    end
+    context 'with invalid params' do
+      it 'returns http success' do
+        put :update, params: { id: article.id, article: invalid_attributes }
+        expect(response).to have_http_status(:success)
+      end
+      it 'does not change article' do
+        expect do
+          put :update, params: { id: article.id, article: invalid_attributes }
+        end.not_to change { article.reload.title }
+      end
+    end
+  end
 end
