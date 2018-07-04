@@ -24,13 +24,13 @@ Gem::Specification.new do |spec|
   spec.add_dependency "activeadmin"
   spec.add_runtime_dependency "dry-validation", "~> 0.12", ">= 0.12.0"
 
-  spec.add_development_dependency 'rspec-rails'
-  spec.add_development_dependency 'database_cleaner'
+  spec.add_development_dependency "rspec-rails", "~> 3.7"
+  spec.add_development_dependency "database_cleaner", "~> 1.7"
   spec.add_development_dependency "bundler", "~> 1.16"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
   spec.add_development_dependency "rubocop", "~> 0.54"
-  spec.add_development_dependency "factory_bot"
-  spec.add_development_dependency "faker"
-  spec.add_development_dependency "rails-controller-testing"
+  spec.add_development_dependency "factory_bot", "~> 4.10"
+  spec.add_development_dependency "faker", "~> 1.8"
+  spec.add_development_dependency "rails-controller-testing", '~> 1'
 end
