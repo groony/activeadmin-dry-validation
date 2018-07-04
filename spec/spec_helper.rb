@@ -1,5 +1,8 @@
 require "bundler/setup"
+require "active_record"
 require "activeadmin/dry/validation"
+
+ActiveRecord::Base.establish_connection adapter: 'sqlite3', database: ':memory:'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

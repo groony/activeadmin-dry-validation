@@ -3,6 +3,7 @@ AllCops:
     - 'bin/*'
     - 'spec/**/*_spec.rb'
     - '*.gemspec'
+    - 'spec/dummy/**/*'
 Rails:
   Enabled: false
 

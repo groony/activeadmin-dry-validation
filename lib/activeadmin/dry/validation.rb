@@ -1,3 +1,5 @@
+require "active_support"
+require "active_support/core_ext"
 require "activeadmin"
 require "dry-validation"
 require "activeadmin/dry/validation/version"
