@@ -4,6 +4,7 @@ require File.expand_path('dummy/config/environment', __dir__)
 
 require 'rspec/rails'
 require 'database_cleaner'
+require 'factory_bot'
 
 def reload_menus!
   ActiveAdmin.application.namespaces.each(&:reset_menu!)
