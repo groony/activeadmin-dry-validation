@@ -45,10 +45,10 @@ Lint/HandleExceptions:
 Metrics/AbcSize:
   Enabled: false
 
-Style/EmptyLinesAroundClassBody:
+Layout/EmptyLinesAroundClassBody:
   Enabled: false
 
-Style/EmptyLinesAroundBlockBody:
+Layout/EmptyLinesAroundBlockBody:
   Enabled: false
 
 Style/CommentAnnotation:
@@ -66,13 +66,13 @@ Style/NumericLiterals:
 Style/DoubleNegation:
   Enabled: false
 
-Style/MultilineMethodCallIndentation:
+Layout/MultilineMethodCallIndentation:
   Enabled: false
 
-Style/ClosingParenthesisIndentation:
+Layout/ClosingParenthesisIndentation:
   Enabled: false
 
-Style/MultilineMethodCallBraceLayout:
+Layout/MultilineMethodCallBraceLayout:
   Enabled: false
 
 Style/IfUnlessModifier:

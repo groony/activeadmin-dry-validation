@@ -19,7 +19,7 @@ module ActiveAdmin
 
             define_method(:ensure_schema) do
               build_resource
-              schema.(resource_params.first.to_h).errors.each do |rule, messages| 
+              schema.call(resource_params.first.to_h).errors.each do |rule, messages|
                 messages.each { |message| resource.errors.add(rule, message) }
               end
               return render :new unless resource.errors.empty?
