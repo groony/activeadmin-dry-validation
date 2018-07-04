@@ -6,12 +6,9 @@ git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 gemspec
 
 gem 'rails', '~> 5'
+gem 'rails-controller-testing'
 
 group :development do
   gem 'listen'
   gem 'sqlite3'
-end
-
-group :test do
-  gem 'rails-controller-testing'
 end
