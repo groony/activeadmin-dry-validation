@@ -4,7 +4,7 @@ require File.expand_path('dummy/config/environment', __dir__)
 
 require 'rspec/rails'
 require 'database_cleaner'
-require 'aker'
+require 'faker'
 require 'factory_bot'
 require 'rails-controller-testing'
 
