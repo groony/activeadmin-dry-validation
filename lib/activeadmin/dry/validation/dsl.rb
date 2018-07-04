@@ -18,11 +18,12 @@ module ActiveAdmin
             end
 
             define_method(:ensure_schema) do
-              build_resource
+              params[:id].blank? ? build_resource : assign_attributes(resource, resource_params)
+              action = params[:id].blank? ? :new : :edit
               schema.call(resource_params.first.to_h).errors.each do |rule, messages|
                 messages.each { |message| resource.errors.add(rule, message) }
               end
-              return render :new unless resource.errors.empty?
+              return render action unless resource.errors.empty?
             end
           end
         end
