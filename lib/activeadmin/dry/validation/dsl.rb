@@ -2,7 +2,7 @@ module ActiveAdmin
   module Dry
     module Validation
       module DSL
-        def schema(outer_schema: nil, &block)
+        def schema(outer_schema: nil, &block) # rubocop:disable Metrics/CyclomaticComplexity,Metrics/PerceivedComplexity
           if block_given?
             result = ::Dry::Validation.Schema(::Dry::Validation::Schema::Params, {}, &block)
           elsif outer_schema.present? && outer_schema.is_a?(::Dry::Validation::Schema)
