@@ -2,7 +2,7 @@ module ActiveAdmin
   module Dry
     module Validation
       module DSL
-        def schema(outer_schema: nil, resource_key: nil, &block)
+        def schema(outer_schema: nil, &block)
           if block_given?
             result = ::Dry::Validation.Schema(::Dry::Validation::Schema::Params, {}, &block)
           elsif outer_schema.present? && outer_schema.is_a?(::Dry::Validation::Schema)
@@ -18,11 +18,11 @@ module ActiveAdmin
             end
 
             define_method(:ensure_schema) do
-              resource_key = resource_class.to_s.downcase if resource_key.blank?
-              @errors = schema.(params[resource_key].to_unsafe_h).errors
-              @resource = resource_class.new(permitted_params[resource_key])
-              @errors.each { |rule, messages| messages.each { |message| @resource.errors.add(rule, message) } }
-              return render :new if @errors.present?
+              build_resource
+              schema.(resource_params.first.to_h).errors.each do |rule, messages| 
+                messages.each { |message| resource.errors.add(rule, message) }
+              end
+              return render :new unless resource.errors.empty?
             end
           end
         end
