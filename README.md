@@ -12,14 +12,53 @@ gem 'activeadmin-dry-validation'
 
 ## Usage
 
-Simple example 
-
 ```ruby
-schema do
-  required(:announcement).filled(:str?)
-  required(:title).filled(:str?)
+ActiveAdmin.register SomeResource do
+  permit_params :title, :announcement, :some_attr
+  
+  schema do
+    required(:announcement).filled(:str?)
+    required(:title).filled(:str?)
+    required(:some_attr).filled(:str?)
+  end
+  
+  form do |f|
+    f.semantic_errors(*f.object.errors.keys)
+    f.inputs do
+      f.input :title
+      f.input :announcement, as: :text
+    end
+  end
 end
 ```
+
+If you have outer schema you can use it too
+
+```ruby
+outer_schema = ::Dry::Validation.Schema(::Dry::Validation::Schema::Params) do
+  required(:announcement).filled(:str?)
+  required(:title).filled(:str?)
+  required(:some_attr).filled(:str?)
+end
+
+schema(outer_schema: outer_schema)
+```
+
+### Customizing error messages
+
+Create `config/initializers/dry-validation.rb`
+
+
+```ruby
+Dry::Validation::Schema::Params.configure do |config|
+  config.messages_file = Rails.root.join('config', 'locales', 'errors.yml')
+end
+```
+
+Create `config/locales/errors.yml` from [source](https://github.com/dry-rb/dry-validation/blob/master/config/errors.yml).
+
+Now you can customize basic errors.
+
 
 ## Development
 
