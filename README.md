@@ -44,6 +44,9 @@ end
 schema(outer_schema: outer_schema)
 ```
 
+Now when you will try to create or update resource, it will be validated by schema.
+
+
 ### Customizing error messages
 
 Create `config/initializers/dry-validation.rb`
