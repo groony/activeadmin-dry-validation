@@ -1,6 +1,6 @@
 # Activeadmin::Dry::Validation
 
-![travis](https://travis-ci.com/groony/activeadmin-dry-validation.svg?branch=master)
+[![Gem Version](https://badge.fury.io/rb/activeadmin-dry-validation.svg)](https://badge.fury.io/rb/activeadmin-dry-validation) ![travis](https://travis-ci.com/groony/activeadmin-dry-validation.svg?branch=master)
 
 ## Installation
 
